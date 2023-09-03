@@ -1,0 +1,13 @@
+{
+  "html": "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Discord-like Theme Changer</title></head><body><header><h1>Discord-like Interface</h1></header><div class='content'><p>This is a Discord-like interface. You can customize the theme with the button below:</p><button id='theme-button'>Toggle Theme</button></div><script>let currentTheme='light';function applyTheme(theme){document.body.style.backgroundColor=theme.backgroundColor;document.body.style.color=theme.textColor;}const themeButton=document.getElementById('theme-button');themeButton.addEventListener('click',()=>{currentTheme=currentTheme==='light'?'dark':'light';applyTheme(themes[currentTheme]);});fetch('themes.json').then(response=>response.json()).then(data=>{themes=data;applyTheme(themes[currentTheme]);}).catch(error=>{console.error('Failed to load themes:',error);});</script></body></html>",
+  "json": {
+    "light": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "textColor": "rgb(0, 0, 0)"
+    },
+    "dark": {
+      "backgroundColor": "rgb(54, 57, 63)",
+      "textColor": "rgb(255, 255, 255)"
+    }
+  }
+}
