@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discord-like Theme Changer</title>
+  <style>
+    /* CSS styles for the Discord-like interface */
+    body {
+      background-color: #36393f;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header {
+      background-color: #7289da;
+      padding: 10px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    /* CSS styles for the theme switcher button */
+    button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Discord-like Interface</h1>
+  </header>
+  <div class="content">
+    <p>This is a Discord-like interface. You can customize the theme with the button below:</p>
+    <button id="theme-button">Toggle Theme</button>
+  </div>
+
+  <script>
+    const themes = {
+      light: {
+        backgroundColor: "#fff",
+        textColor: "#000",
+      },
+      dark: {
+        backgroundColor: "#36393f",
+        textColor: "#fff",
+      },
+    };
+
+    let currentTheme = "light";
+
+    function applyTheme(theme) {
+      document.body.style.backgroundColor = theme.backgroundColor;
+      document.body.style.color = theme.textColor;
+    }
+
+    const themeButton = document.getElementById("theme-button");
+
+    themeButton.addEventListener("click", () => {
+      currentTheme = currentTheme === "light" ? "dark" : "light";
+      applyTheme(themes[currentTheme]);
+    });
+
+    // Apply the default theme on page load
+    applyTheme(themes[currentTheme]);
+  </script>
+</body>
+</html>
